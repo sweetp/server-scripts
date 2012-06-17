@@ -1,0 +1,14 @@
+case $1 in
+	(merge)
+		sweetp -Premote=$2 scm merge
+		;;
+	(ci)
+		sweetp -Pmessage=$2 -Pswitches="-a" scmenhancer commit with-ticket
+		;;
+	(fi)
+		sweetp -Pcommand="fixup" -Pswitches="-a" scmenhancer commit again
+		;;
+	(featf)
+		sweetp -Pcommand="feature" -Pcommand="finish" -Pcommand="-k" gitflowpp command
+		;;
+esac

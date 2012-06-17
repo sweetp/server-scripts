@@ -1,0 +1,4 @@
+#! /bin/bash
+
+cd ~/bin/sweetp-project/server
+bin/server -i
