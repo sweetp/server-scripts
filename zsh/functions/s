@@ -1,14 +1,23 @@
 case $1 in
-	(merge)
-		sweetp -Premote=$2 scm merge
-		;;
 	(ci)
-		sweetp -Pmessage=$2 -Pswitches="-a" scmenhancer commit with-ticket
+		sweetp -Pmessage=$2 scmenhancer commit with-ticket
 		;;
 	(fi)
+		sweetp -Pcommand="fixup" scmenhancer commit again
+		;;
+	(cia)
+		sweetp -Pmessage=$2 -Pswitches="-a" scmenhancer commit with-ticket
+		;;
+	(fia)
 		sweetp -Pcommand="fixup" -Pswitches="-a" scmenhancer commit again
 		;;
-	(featf)
+	(ff)
+		sweetp -Pcommand="feature" -Pcommand="$2" gitflowpp command
+		;;
+	(fff)
 		sweetp -Pcommand="feature" -Pcommand="finish" -Pcommand="-k" gitflowpp command
+		;;
+	(ffc)
+		sweetp -Pcommand="feature" -Pcommand="checkout" -Pcommand="$2" gitflowpp command
 		;;
 esac
